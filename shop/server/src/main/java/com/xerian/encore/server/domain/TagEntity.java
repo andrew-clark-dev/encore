@@ -13,29 +13,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "tag")
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserEntity {
+public class TagEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String username;
-
-	private String firstName;
-
-	private String lastName;
-
 	@NaturalId
-	private String email;
-
-	private String password;
-
-	private String phone;
-
-	private Integer userStatus;
+	private String name;
 	
 }
