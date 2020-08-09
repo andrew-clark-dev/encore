@@ -1,1 +1,1 @@
-export * from './tables.service';
+export * from './items.service';

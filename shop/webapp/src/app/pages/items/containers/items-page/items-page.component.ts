@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { TablesService } from '../../services';
-import { Customer, Employee } from '../../models';
+import { ItemsService } from '../../services';
+import { Customer } from '../../models';
 
 @Component({
   selector: 'app-items-page',
@@ -12,7 +12,7 @@ import { Customer, Employee } from '../../models';
 export class ItemsPageComponent {
   public materialTableData$: Observable<Customer[]>
 
-  constructor(private service: TablesService) {
+  constructor(private service: ItemsService) {
     this.materialTableData$ = service.loadMaterialTableData();
   }
 }

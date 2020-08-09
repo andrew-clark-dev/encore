@@ -14,7 +14,7 @@ import { ItemsPageComponent } from './containers';
 import { ItemsRoutingModule } from './items-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ItemTableComponent } from './components';
-import { TablesService } from './services';
+import { ItemsService } from './services';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { TablesService } from './services';
     SharedModule
   ],
   providers: [
-    TablesService
+    ItemsService
   ]
 })
 export class ItemsModule { }
