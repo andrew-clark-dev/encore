@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ItemsService } from '../../services';
-import { Customer } from '../../models';
+import { Item } from 'build/openapi/model/item';
 
 @Component({
   selector: 'app-items-page',
@@ -10,9 +10,9 @@ import { Customer } from '../../models';
   styleUrls: ['./items-page.component.scss']
 })
 export class ItemsPageComponent {
-  public materialTableData$: Observable<Customer[]>
+  public itemTableData$: Observable<Item[]>
 
   constructor(private service: ItemsService) {
-    this.materialTableData$ = service.loadMaterialTableData();
+    this.itemTableData$ = service.loadItemTableData();
   }
 }

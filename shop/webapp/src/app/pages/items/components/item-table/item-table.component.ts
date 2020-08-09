@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Customer } from '../../models';
+import { Item } from 'build/openapi/model/item';
 
 @Component({
   selector: 'app-item-table',
@@ -8,11 +9,11 @@ import { Customer } from '../../models';
   styleUrls: ['./item-table.component.scss']
 })
 export class ItemTableComponent implements OnInit {
-  @Input() materialTableDate: Customer[];
-  public displayedColumns: string[] = ['name', 'email', 'product', 'price', 'date', 'city', 'status'];
-  public dataSource: Customer[];
+  @Input() itemTableDate: Item[];
+  public displayedColumns: string[] = ['id', 'category', 'name', 'photo', 'tags', 'status'];
+  public dataSource: Item[];
 
   public ngOnInit() {
-    this.dataSource = this.materialTableDate;
+    this.dataSource = this.itemTableDate;
   }
 }
