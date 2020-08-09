@@ -1,27 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { ApiModule } from 'build/openapi/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
-import { MatSliderModule } from '@angular/material/slider';
-
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthModule } from './pages/auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ApiModule,
-    HttpClientModule,
+    SharedModule,
+    AuthModule,
+    DashboardModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    RouterModule,
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
