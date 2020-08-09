@@ -1,0 +1,24 @@
+<mat-card class="item-table">
+  <mat-card-title class="item-table__header">
+    <h5 class="item-table__title">Item Table</h5>
+    <app-settings-menu></app-settings-menu>
+  </mat-card-title>
+
+  <mat-card-content class="item-table__content">
+    <table mat-table [dataSource]="dataSource" class="item-table__table">
+      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}" class="item-table__table-row">
+        <th mat-header-cell *matHeaderCellDef class="item-table__table-row-title">{{column}}</th>
+        <td mat-cell *matCellDef="let element" class="item-table__table-content">
+          <span *ngIf="column !== 'status'">{{element[column]}}</span>
+          <div *ngIf="column === 'status'" class="item-table__content-badge" [ngClass]="element[column]">
+            <span>{{element[column]}}</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+

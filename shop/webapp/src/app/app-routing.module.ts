@@ -6,6 +6,12 @@ import {AuthGuard} from './pages/auth/guards';
 
 const routes: Routes = [
   {
+    path: 'items',
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/items/items.module').then(m => m.ItemsModule)
+  },
+  {
     path: 'dashboard',
     pathMatch: 'full',
     canActivate: [AuthGuard],
