@@ -10,10 +10,7 @@
         <th mat-header-cell *matHeaderCellDef class="item-table__table-row-title">{{column}}</th>
         <td mat-cell *matCellDef="let element" class="item-table__table-content">
           <span *ngIf="column !== 'status'">{{element[column]}}</span>
-          <!-- <div *ngIf="column === 'status'" class="item-table__content-badge" [ngClass]="element[column]">
-            <span>{{element[column]}}xxx</span>
-          </div> -->
-          <div *ngIf="column === 'status'" [ngClass]="element[column]" >
+          <div *ngIf="column === 'status'" class="item-table__content-badge" [ngClass]="element[column]">
             <span>{{element[column]}}</span>
           </div>
         </td>
