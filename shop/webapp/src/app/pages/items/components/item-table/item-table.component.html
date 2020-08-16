@@ -14,6 +14,12 @@
       <mat-icon class="item-table-wrapper__icon">search</mat-icon>
     </button>
   </mat-card-title>
+  <mat-card-subtitle>
+    <button mat-flat-button class="mat-button-wrapper">+ New</button>
+    <button class="item-table-wrapper__button" mat-mini-fab (click)="showFilterInput()">
+      <mat-icon class="item-table-wrapper__icon">delete</mat-icon>
+    </button>
+</mat-card-subtitle>
   <mat-card-content class="item-table__content">
     <table class="item-table__table" mat-table [dataSource]="dataSource">
 

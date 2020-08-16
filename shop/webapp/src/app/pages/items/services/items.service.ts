@@ -26,7 +26,55 @@ export class ItemsService {
         photoUrls: null,
         tags: null,
         status: Item.StatusEnum.Sold
-      }
+      },
+      {
+        id: 3,
+        category: null,
+        name: 'Item Three',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Pending
+      },
+      {
+        id: 4,
+        category: null,
+        name: 'Item Other',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Sold
+      },
+      {
+        id: 5,
+        category: null,
+        name: 'Item Other',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Sold
+      },
+      {
+        id: 6,
+        category: null,
+        name: 'Item Other',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Sold
+      },
+      {
+        id: 7,
+        category: null,
+        name: 'Item Other',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Sold
+      },
+      {
+        id: 8,
+        category: null,
+        name: 'Item Other',
+        photoUrls: null,
+        tags: null,
+        status: Item.StatusEnum.Sold
+      },
     ]);
   }
 }
