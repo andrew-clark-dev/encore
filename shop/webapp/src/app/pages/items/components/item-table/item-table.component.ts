@@ -55,6 +55,9 @@ export class ItemTableComponent implements OnInit {
 
   public showFilterInput(): void {
     this.isShowFilterInput = !this.isShowFilterInput;
-    this.dataSource = new MatTableDataSource<Item>(this.itemTableData);
+ //   this.dataSource = new MatTableDataSource<Item>(this.itemTableData);
+  }
+
+  public refresh(): void {
   }
 }

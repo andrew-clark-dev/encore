@@ -1,25 +1,26 @@
 <mat-card class="item-table-wrapper">
   <mat-card-title class="item-table-wrapper__header">
-    <p *ngIf="!isShowFilterInput" class="item-table-wrapper__title">Item List</p>
-    <div *ngIf="isShowFilterInput" class="item-table-wrapper__search">
-      <div class="item-table-wrapper__icon-wrapper">
-        <mat-icon class="item-table-wrapper__icon">search</mat-icon>
-      </div>
+    <p *ngIf="!isShowFilterInput" class="item-table-wrapper__title">
+      Items
+    </p>
+    <div *ngIf="isShowFilterInput" class="item-table-wrapper__refresh">
       <input matInput class="item-table-wrapper__search-input" (keyup)="applyFilter($event)">
       <button class="item-table-wrapper__button" mat-mini-fab (click)="showFilterInput()">
         <mat-icon class="item-table-wrapper__icon">close</mat-icon>
       </button>
     </div>
-    <button class="item-table-wrapper__button" mat-mini-fab (click)="showFilterInput()">
-      <mat-icon class="item-table-wrapper__icon">search</mat-icon>
-    </button>
+    <div style="display: flex; justify-content: flex-end">
+      <button class="item-table-wrapper__button" mat-mini-fab (click)="showFilterInput()">
+        <mat-icon class="item-table-wrapper__icon">search</mat-icon>
+      </button>
+      <button class="item-table-wrapper__button" mat-mini-fab (click)="refresh()">
+        <mat-icon class="item-table-wrapper__icon">save_alt</mat-icon>
+      </button>
+      <button class="item-table-wrapper__button" mat-mini-fab (click)="refresh()">
+        <mat-icon class="item-table-wrapper__icon">refresh</mat-icon>
+      </button>
+    </div>
   </mat-card-title>
-  <mat-card-subtitle>
-    <button mat-flat-button class="mat-button-wrapper">+ New</button>
-    <button class="item-table-wrapper__button" mat-mini-fab (click)="showFilterInput()">
-      <mat-icon class="item-table-wrapper__icon">delete</mat-icon>
-    </button>
-</mat-card-subtitle>
   <mat-card-content class="item-table__content">
     <table class="item-table__table" mat-table [dataSource]="dataSource">
 

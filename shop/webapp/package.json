@@ -1,11 +1,16 @@
 {
-  "name": "angular-material-admin",
+  "name": "webapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run generate:api",
     "start": "ng serve",
+    "prebuild": "npm run generate:api",
     "build": "ng build",
+    "test": "ng test",
     "lint": "ng lint",
+    "e2e": "ng e2e",
+    "generate:api": "openapi-generator generate -g typescript-angular -i https://api.swaggerhub.com/apis/andrew-clark-dev/encore/0.0.1 -o ./build/openapi",
     "hmr": "ng serve --configuration hmr"
   },
   "private": true,
