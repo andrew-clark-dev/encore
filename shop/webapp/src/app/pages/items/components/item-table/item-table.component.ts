@@ -12,7 +12,7 @@ import { Item } from 'build/openapi/model/item';
 })
 export class ItemTableComponent implements OnInit {
   @Input() itemTableData: Item[];
-  public displayedColumns: string[] = ['select', 'id', 'name', 'category', 'status'];
+  public displayedColumns: string[] = ['select', 'id', 'name', 'category', 'status', 'actions'];
   public dataSource: MatTableDataSource<Item>;
   public selection = new SelectionModel<Item>(true, []);
 
@@ -60,4 +60,15 @@ export class ItemTableComponent implements OnInit {
 
   public refresh(): void {
   }
+
+  public addNew(): void {
+
+  }
+
+  public startEdit(i: number, id: number, title: string, state: string, url: string, created_at: string, updated_at: string): void {
+  }
+
+  public deleteItem(i: number, id: number, title: string, state: string, url: string): void  {
+  }
+
 }

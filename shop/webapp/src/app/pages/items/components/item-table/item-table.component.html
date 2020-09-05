@@ -27,57 +27,71 @@
       <!-- Checkbox Column -->
       <ng-container matColumnDef="select">
         <th class="item-table__table-checkbox" mat-header-cell *matHeaderCellDef>
-          <mat-checkbox
-            color="primary"
-            (change)="$event ? masterToggle() : null"
+          <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
             [checked]="selection.hasValue() && isAllSelected()"
-            [indeterminate]="selection.hasValue() && !isAllSelected()"
-            [aria-label]="checkboxLabel()">
+            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
           </mat-checkbox>
         </th>
         <td class="item-table__table-checkbox" mat-cell *matCellDef="let row">
-          <mat-checkbox
-            color="primary"
-            (click)="$event.stopPropagation()"
-            (change)="$event ? selection.toggle(row) : null"
-            [checked]="selection.isSelected(row)"
+          <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
             [aria-label]="checkboxLabel(row)">
           </mat-checkbox>
         </td>
       </ng-container>
 
       <!-- Id Column -->
-      <ng-container matColumnDef="id" >
-        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef > Id </th>
+      <ng-container matColumnDef="id">
+        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef> Id </th>
         <td class="item-table__table-content" mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="name" >
-        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef > Name </th>
+      <ng-container matColumnDef="name">
+        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef> Name </th>
         <td class="item-table__table-content" mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <!-- Category Column -->
-      <ng-container matColumnDef="category" >
-        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef > Category </th>
+      <ng-container matColumnDef="category">
+        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef> Category </th>
         <td class="item-table__table-content" mat-cell *matCellDef="let element"> {{element.category}} </td>
       </ng-container>
 
       <!-- Status Column -->
-      <ng-container matColumnDef="status" >
-        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef > Status </th>
-        <td class="item-table__table-content" mat-cell *matCellDef="let element"> 
-        <div class="item-table__content-badge" [ngClass]="element.status">
-          <span>{{element.status}}</span>
-        </div>
+      <ng-container matColumnDef="status">
+        <th class="item-table__table-row-title" mat-header-cell *matHeaderCellDef> Status </th>
+        <td class="item-table__table-content" mat-cell *matCellDef="let element">
+          <div class="item-table__content-badge" [ngClass]="element.status">
+            <span>{{element.status}}</span>
+          </div>
         </td>
-      <!-- <div *ngIf="column === 'status'" class="material-table__content-badge" [ngClass]="element[column]"> -->
-        </ng-container>
+        <!-- <div *ngIf="column === 'status'" class="material-table__content-badge" [ngClass]="element[column]"> -->
+      </ng-container>
+
+      <!-- actions -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon class="item-table-wrapper__icon">add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let row; let i=index;">
+          <button class="item-table-wrapper__button" mat-mini-fab
+            (click)="startEdit(i, row.id, row.title, row.state, row.url, row.created_at, row.updated_at)">
+            <mat-icon class="item-table-wrapper__icon">edit</mat-icon>
+          </button>
+
+          <button class="item-table-wrapper__button" mat-mini-fab
+            (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
+            <mat-icon class="item-table-wrapper__icon">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-          (click)="selection.toggle(row)">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
       </tr>
     </table>
   </mat-card-content>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-admin": {
+    "webapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-material-admin",
+            "outputPath": "dist/webapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,22 +72,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-material-admin:build"
+            "browserTarget": "webapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-admin:build:production"
+              "browserTarget": "webapp:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "angular-material-admin:build:hmr"
+              "browserTarget": "webapp:build:hmr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-admin:build"
+            "browserTarget": "webapp:build"
           }
         },
         "lint": {
@@ -106,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "angular-material-admin"
+  "defaultProject": "webapp"
 }
